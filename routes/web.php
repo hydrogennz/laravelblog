@@ -36,4 +36,4 @@ Route::resource('/admin/articles', 'Admin\ArticleController')->except([
     'destroy'
 ])->middleware(['auth']);
 
-Route::get('/admin/articles/{article}/destroy', 'Admin\ArticleController@destroy');
+Route::get('/admin/articles/{article}/destroy', 'Admin\ArticleController@destroy')->name('articles.destroy');

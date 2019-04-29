@@ -14,14 +14,18 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $articles = Article::all();
         $articles = $articles->sortByDesc("publish_date");
         
-        $articles = $articles->filter(function ($article, $key) {
-            return $article->publish_state;
-        });
+        // Not ideal, need to move loading of all articles into a private API now that we are creating distinction between published/draft states
+        if($request->get('showAll') !== 'true')
+        {
+            $articles = $articles->filter(function ($article, $key) {
+                return $article->publish_state;
+            });    
+        }
 
         return array_values($articles->toArray());
     }

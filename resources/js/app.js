@@ -23,6 +23,7 @@ import moment from 'moment';
 Vue.component('article-list-item', require('./components/ArticleListItemComponent.vue').default);
 Vue.component('article-list', require('./components/ArticleListComponent.vue').default);
 Vue.component('article-view', require('./components/ArticleComponent.vue').default);
+Vue.component('admin-article-table', require('./components/AdminArticleTableComponent.vue').default);
 Vue.component('admin-article-table-item', require('./components/AdminArticleTableItemComponent.vue').default);
 
 Vue.filter('formatDate', function(value) {
